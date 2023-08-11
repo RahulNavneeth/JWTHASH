@@ -5,7 +5,9 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
-app.use(cors(), bodyParser.json());
+app.use(cors({
+    origin: "*",
+}), bodyParser.json());
 const port = 6969;
 app.get("/", (_, res) => {
     return res.send({ message: "->JWTHASH<-" }).status(200);
